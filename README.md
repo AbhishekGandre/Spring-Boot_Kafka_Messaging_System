@@ -2,13 +2,7 @@
 
  <html lang="en">
 
- <head>
 
- &nbsp; <meta charset="UTF-8">
-
- &nbsp; <title>Spring Boot Kafka Messaging System</title>
-
- </head>
 
  <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 40px;">
 
