@@ -1,228 +1,184 @@
-# Spring-Boot\_Kafka\_Messaging\_System
+# <!DOCTYPE html>
 
+# <html lang="en">
 
+# <head>
 
-<!DOCTYPE html>
+# &nbsp; <meta charset="UTF-8">
 
-<html lang="en">
+# &nbsp; <title>Spring Boot Kafka Messaging System</title>
 
-<head>
+# </head>
 
-&nbsp; <meta charset="UTF-8">
+# <body style="font-family: Arial, sans-serif; line-height: 1.6; margin: 40px;">
 
-&nbsp; <title>Spring Boot Kafka Messaging System</title>
+# 
 
-&nbsp; <style>
+# &nbsp; <h1 style="color: #2c3e50;">📨 Spring Boot Kafka Messaging System</h1>
 
-&nbsp;   body {
+# 
 
-&nbsp;     font-family: Arial, sans-serif;
+# &nbsp; <p>
 
-&nbsp;     line-height: 1.6;
+# &nbsp;   This project is a simple <strong>Kafka-based messaging system</strong> built using <strong>Spring Boot</strong>.
 
-&nbsp;     margin: 40px;
+# &nbsp;   It includes a REST API to send messages, a Kafka Producer, and a Kafka Consumer to receive them.
 
-&nbsp;   }
+# &nbsp; </p>
 
-&nbsp;   code, pre {
+# 
 
-&nbsp;     background: #f4f4f4;
+# &nbsp; <h2 style="color: #2c3e50;">🖼️ Demo Screenshots</h2>
 
-&nbsp;     padding: 10px;
+# 
 
-&nbsp;     display: block;
+# &nbsp; <p><strong>Message Sent via API:</strong></p>
 
-&nbsp;     border-radius: 5px;
+# &nbsp; <img src="images/send-message.png" alt="Send Message Screenshot"
 
-&nbsp;     overflow-x: auto;
+# &nbsp;      style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
 
-&nbsp;   }
+# 
 
-&nbsp;   img {
+# &nbsp; <p><strong>Message Received in Consumer:</strong></p>
 
-&nbsp;     max-width: 100%;
+# &nbsp; <img src="images/received-message.png" alt="Received Message Screenshot"
 
-&nbsp;     border: 1px solid #ccc;
+# &nbsp;      style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
 
-&nbsp;     border-radius: 4px;
+# 
 
-&nbsp;   }
+# &nbsp; <h2 style="color: #2c3e50;">🧱 Tech Stack</h2>
 
-&nbsp;   h1, h2 {
+# &nbsp; <ul>
 
-&nbsp;     color: #2c3e50;
+# &nbsp;   <li>Java 17+</li>
 
-&nbsp;   }
+# &nbsp;   <li>Spring Boot</li>
 
-&nbsp; </style>
+# &nbsp;   <li>Apache Kafka</li>
 
-</head>
+# &nbsp;   <li>Spring Kafka</li>
 
-<body>
+# &nbsp;   <li>Maven</li>
 
+# &nbsp; </ul>
 
+# 
 
-<h1>📨 Spring Boot Kafka Messaging System</h1>
+# &nbsp; <h2 style="color: #2c3e50;">⚙️ Configuration</h2>
 
+# &nbsp; <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>spring.kafka.bootstrap-servers=localhost:9092
 
+# spring.kafka.consumer.group-id=group-id
 
-<p>
+# </code></pre>
 
-&nbsp; This project is a simple <strong>Kafka-based messaging system</strong> built using <strong>Spring Boot</strong>.
+# 
 
-&nbsp; It includes a REST API to send messages, a Kafka Producer, and a Kafka Consumer to receive them.
+# &nbsp; <h2 style="color: #2c3e50;">▶️ Run the Project</h2>
 
-</p>
+# &nbsp; <ol>
 
+# &nbsp;   <li>Start Zookeeper and Kafka on localhost (default ports).</li>
 
+# &nbsp;   <li>Run the application:</li>
 
-<h2>🖼️ Demo Screenshots</h2>
+# &nbsp; </ol>
 
+# &nbsp; <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>./mvnw spring-boot:run</code></pre>
 
+# 
 
-<p><strong>Message Sent via API:</strong></p>
+# &nbsp; <h2 style="color: #2c3e50;">🌐 API Endpoint</h2>
 
-<img src="images/send-message.png" alt="Send Message Screenshot" />
+# &nbsp; <table border="1" cellpadding="8">
 
+# &nbsp;   <thead>
 
+# &nbsp;     <tr>
 
-<p><strong>Message Received in Consumer:</strong></p>
+# &nbsp;       <th>Method</th>
 
-<img src="images/received-message.png" alt="Received Message Screenshot" />
+# &nbsp;       <th>Endpoint</th>
 
+# &nbsp;       <th>Description</th>
 
+# &nbsp;     </tr>
 
-<h2>🧱 Tech Stack</h2>
+# &nbsp;   </thead>
 
-<ul>
+# &nbsp;   <tbody>
 
-&nbsp; <li>Java 17+</li>
+# &nbsp;     <tr>
 
-&nbsp; <li>Spring Boot</li>
+# &nbsp;       <td>POST</td>
 
-&nbsp; <li>Apache Kafka</li>
+# &nbsp;       <td>/api/kafka/send</td>
 
-&nbsp; <li>Spring Kafka</li>
+# &nbsp;       <td>Send message to Kafka topic</td>
 
-&nbsp; <li>Maven</li>
+# &nbsp;     </tr>
 
-</ul>
+# &nbsp;   </tbody>
 
+# &nbsp; </table>
 
+# 
 
-<h2>⚙️ Configuration</h2>
+# &nbsp; <h3>Sample JSON Body:</h3>
 
-<pre><code>spring.kafka.bootstrap-servers=localhost:9092
+# &nbsp; <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>{
 
-spring.kafka.consumer.group-id=group-id
+# &nbsp; "message": "Hello Kafka!"
 
-</code></pre>
+# }</code></pre>
 
+# 
 
+# &nbsp; <h2 style="color: #2c3e50;">📤 Kafka Producer</h2>
 
-<h2>▶️ Run the Project</h2>
+# &nbsp; <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>
 
-<ol>
+# kafkaTemplate.send("test-topic", message);
 
-&nbsp; <li>Start Zookeeper and Kafka on localhost (default ports).</li>
+# </code></pre>
 
-&nbsp; <li>Run the application:</li>
+# 
 
-</ol>
+# &nbsp; <h2 style="color: #2c3e50;">📥 Kafka Consumer</h2>
 
-<pre><code>./mvnw spring-boot:run</code></pre>
+# &nbsp; <pre style="background: #f4f4f4; padding: 10px; border-radius: 5px;"><code>
 
+# @KafkaListener(topics = "test-topic", groupId = "group-id")
 
+# </code></pre>
 
-<h2>🌐 API Endpoint</h2>
+# 
 
-<table border="1" cellpadding="8">
+# &nbsp; <h2 style="color: #2c3e50;">✅ Features</h2>
 
-&nbsp; <thead>
+# &nbsp; <ul>
 
-&nbsp;   <tr>
+# &nbsp;   <li>Simple Kafka setup with Producer/Consumer</li>
 
-&nbsp;     <th>Method</th>
+# &nbsp;   <li>REST API integration</li>
 
-&nbsp;     <th>Endpoint</th>
+# &nbsp;   <li>Extensible for real-time systems</li>
 
-&nbsp;     <th>Description</th>
+# &nbsp; </ul>
 
-&nbsp;   </tr>
+# 
 
-&nbsp; </thead>
+# &nbsp; <h2 style="color: #2c3e50;">📜 License</h2>
 
-&nbsp; <tbody>
+# &nbsp; <p>MIT License</p>
 
-&nbsp;   <tr>
+# 
 
-&nbsp;     <td>POST</td>
+# </body>
 
-&nbsp;     <td>/api/kafka/send</td>
-
-&nbsp;     <td>Send message to Kafka topic</td>
-
-&nbsp;   </tr>
-
-&nbsp; </tbody>
-
-</table>
-
-
-
-<h3>Sample JSON Body:</h3>
-
-<pre><code>{
-
-&nbsp; "message": "Hello Kafka!"
-
-}</code></pre>
-
-
-
-<h2>📤 Kafka Producer</h2>
-
-<pre><code>
-
-kafkaTemplate.send("test-topic", message);
-
-</code></pre>
-
-
-
-<h2>📥 Kafka Consumer</h2>
-
-<pre><code>
-
-@KafkaListener(topics = "test-topic", groupId = "group-id")
-
-</code></pre>
-
-
-
-<h2>✅ Features</h2>
-
-<ul>
-
-&nbsp; <li>Simple Kafka setup with Producer/Consumer</li>
-
-&nbsp; <li>REST API integration</li>
-
-&nbsp; <li>Extensible for real-time systems</li>
-
-</ul>
-
-
-
-<h2>📜 License</h2>
-
-<p>MIT License</p>
-
-
-
-</body>
-
-</html>
+# </html>
 
 
 
