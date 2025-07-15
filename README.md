@@ -20,7 +20,7 @@
 
  </p>
 
- <img src="https://media.geeksforgeeks.org/wp-content/uploads/20220214105957/SpringBootProducerConsumer.jpg"
+ <img src="https://github.com/AbhishekGandre/Spring-Boot_Kafka_Messaging_System/blob/main/kafka.jpeg"
      alt="Spring Boot Kafka Producer-Consumer"
      style="max-width: 100%; border: 1px solid #ccc; border-radius: 4px;" />
 
